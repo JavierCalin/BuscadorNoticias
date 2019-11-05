@@ -1,7 +1,28 @@
 import React from 'react';
 
-const Noticia = () => {
-    return ( <h1>desde Noticias</h1> );
+const Noticia = ({noticia}) => {
+    //extraer los datos
+    const {urlToImage, url, title,description, source} = noticia
+    
+    return ( 
+    <div className ="col s12 m6 l4">
+        <div className="card">
+            <div className="card-image">
+                {(urlToImage)?<img src={urlToImage} alt={title}/>:null}
+                <span className="card-title">{source.name}</span>
+            </div>
+            <div className="card-content">
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
+            <div className="card-action">
+                <a href={url} target="_blank" rel="noopener noreferrer" className="waves-effect waves-light btn">
+                    Ver noticia completa
+                </a>
+            </div>
+        </div>
+    </div>
+    );
 }
  
 export default Noticia;
